@@ -1,4 +1,4 @@
-# 界面美化 · dsh-ui-beautify
+# 界面美化 · dsh-spectra
 
 DeepSeek Harness Web GUI 的外观定制插件，一个总开关，六套内置方案，全部参数可调，配置可分享
 
@@ -48,7 +48,7 @@ DeepSeek Harness Web GUI 的外观定制插件，一个总开关，六套内置�
 ### 克隆下来用 dsh 安装
 
 ```bash
-git clone https://github.com/zhi-jie2778/dsh-ui-beautify.git
+git clone https://github.com/zhi-jie2778/dsh-spectra.git
 dsh plugin --profile desktop add link:<克隆目录的绝对路径>
 ```
 
@@ -56,19 +56,19 @@ Windows 上更省事的是用目录联接，以后 `git pull` 完不用重装
 
 ```powershell
 New-Item -ItemType Junction `
-  -Path   "$env:USERPROFILE\.dsh\profiles\desktop\node_modules\dsh-ui-beautify" `
+  -Path   "$env:USERPROFILE\.dsh\profiles\desktop\node_modules\dsh-spectra" `
   -Target "<克隆目录的绝对路径>"
 ```
 
 ### 手动两步
 
-1. 把本目录放到 `<DSH_HOME>/profiles/<profile>/node_modules/dsh-ui-beautify`，可用目录联接或 symlink
+1. 把本目录放到 `<DSH_HOME>/profiles/<profile>/node_modules/dsh-spectra`，可用目录联接或 symlink
 2. 在 `<DSH_HOME>/profiles/<profile>/cordis.patch.yml` 末尾追加
 
 ```yaml
 - insert:
     - id: ui-beautify
-      name: dsh-ui-beautify
+      name: dsh-spectra
 ```
 
 ### 装完必须重启 DSH
@@ -91,7 +91,7 @@ git pull
 
 1. 设置里关掉总开关
 2. 从 `cordis.patch.yml` 删掉上面的 `insert` 块
-3. 删除 `node_modules/dsh-ui-beautify` 与 `$DSH_HOME/ui-beautify`
+3. 删除 `node_modules/dsh-spectra` 与 `$DSH_HOME/ui-beautify`
 
 ## 兼容性
 
@@ -107,7 +107,7 @@ git pull
 
 设置 → 更多 → 诊断 里有重绘压力测试，连续重绘壁纸图层 24 次，用来排查偶发重绘异常，反馈问题时附截图最有用
 
-宿主侧另有 `GET /plugins/dsh-ui-beautify/diagnostics`，返回版本、状态文件路径和最近的请求记录
+宿主侧另有 `GET /plugins/dsh-spectra/diagnostics`，返回版本、状态文件路径和最近的请求记录
 
 ## 已知限制
 

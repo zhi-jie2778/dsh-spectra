@@ -1,10 +1,10 @@
 # ---------------------------------------------------------------------------
-# dsh-ui-beautify — bundle patch
+# dsh-spectra — bundle patch
 # ---------------------------------------------------------------------------
-# Installing this package adds one Loader entry named `ui-beautify`, whose
-# Settings document namespace is `ui-beautify`. The entry is inert until the
+# Installing this package adds one Loader entry named `spectra`, whose
+# Settings document namespace is `spectra`. The entry is inert until the
 # user turns the master switch on inside Settings -> 界面美化.
 # ---------------------------------------------------------------------------
 - insert:
-    - id: ui-beautify
-      name: dsh-ui-beautify
+    - id: spectra
+      name: dsh-spectra

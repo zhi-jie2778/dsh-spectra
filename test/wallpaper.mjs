@@ -60,17 +60,17 @@ assert.ok(api, "test face exported");
 
 /* ---- 1. old absolute URLs become ids, not dead addresses ---- */
 const fromAbsolute = api.normalizeState({
-	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-ui-beautify/wallpaper?v=123" },
+	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-spectra/wallpaper?v=123" },
 });
 assert.equal(fromAbsolute.wallpaper.image, "wall:legacy1", "single-file URL maps to the migrated entry");
 
 const fromIdUrl = api.normalizeState({
-	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-ui-beautify/wallpaper?id=abc9&v=5" },
+	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-spectra/wallpaper?id=abc9&v=5" },
 });
 assert.equal(fromIdUrl.wallpaper.image, "wall:abc9", "per-id URL maps to that id");
 
 const fromDeadRoute = api.normalizeState({
-	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-ui-beautify/wall/xyz.png" },
+	wallpaper: { style: "image", image: "http://127.0.0.1:61478/plugins/dsh-spectra/wall/xyz.png" },
 });
 assert.equal(fromDeadRoute.wallpaper.image, "", "the abandoned /wall/ route is cleared");
 
@@ -81,8 +81,8 @@ assert.equal(keepsRemote.wallpaper.image, "https://example.com/a.jpg", "an exter
 
 /* ---- 2. the stored list carries ids, never URLs ---- */
 const entries = api.libraryEntries([
-	{ id: "a1", name: "沙滩", bytes: 2048, savedAt: 11, url: "http://127.0.0.1:1/plugins/dsh-ui-beautify/wallpaper?id=a1" },
-	{ id: "b2", name: "", bytes: 4096, savedAt: 22, url: "http://127.0.0.1:1/plugins/dsh-ui-beautify/wallpaper?id=b2" },
+	{ id: "a1", name: "沙滩", bytes: 2048, savedAt: 11, url: "http://127.0.0.1:1/plugins/dsh-spectra/wallpaper?id=a1" },
+	{ id: "b2", name: "", bytes: 4096, savedAt: 22, url: "http://127.0.0.1:1/plugins/dsh-spectra/wallpaper?id=b2" },
 ]);
 assert.equal(entries.length, 2);
 assert.equal(entries[0].id, "a1");
@@ -94,14 +94,14 @@ assert.equal(api.libraryEntries(Array.from({ length: 40 }, (_, i) => ({ id: "w" 
 
 /* ---- 3. resolution always asks the live origin ---- */
 api.setHostWallpapers([
-	{ id: "a1", url: "/plugins/dsh-ui-beautify/wallpaper?id=a1&v=11" },
-	{ id: "b2", url: "/plugins/dsh-ui-beautify/wallpaper?id=b2&v=22" },
+	{ id: "a1", url: "/plugins/dsh-spectra/wallpaper?id=a1&v=11" },
+	{ id: "b2", url: "/plugins/dsh-spectra/wallpaper?id=b2&v=22" },
 ]);
 const resolved = api.wallpaperSource(api.normalizeState({ wallpaper: { style: "image", image: "wall:b2" } }));
-assert.equal(resolved, "http://127.0.0.1:1234/plugins/dsh-ui-beautify/wallpaper?id=b2&v=22");
+assert.equal(resolved, "http://127.0.0.1:1234/plugins/dsh-spectra/wallpaper?id=b2&v=22");
 
 const missing = api.normalizeState({ wallpaper: { style: "image", image: "wall:gone" } });
-assert.equal(api.wallpaperSource(missing), "http://127.0.0.1:1234/plugins/dsh-ui-beautify/wallpaper?id=a1&v=11", "a vanished id falls back to the newest entry");
+assert.equal(api.wallpaperSource(missing), "http://127.0.0.1:1234/plugins/dsh-spectra/wallpaper?id=a1&v=11", "a vanished id falls back to the newest entry");
 
 const notImage = api.normalizeState({ wallpaper: { style: "gradient" } });
 assert.equal(api.wallpaperSource(notImage), "", "only the image style resolves a file");

@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.8.0
+
+改名，包名从 `dsh-ui-beautify` 变成 `dsh-spectra`
+
+原因：npm 上已有另一个作者发布的 `dsh-ui-beautify`，而且它用的插件 id 也是 `ui-beautify`，两者装上会互相顶掉
+
+- 包名改为 `dsh-spectra`，插件 id 改为 `spectra`
+- 所有接口路径从 `/plugins/dsh-ui-beautify/*` 变成 `/plugins/dsh-spectra/*`
+- 设置数据目录从 `$DSH_HOME/ui-beautify` 变成 `$DSH_HOME/spectra`，启动时自动从旧目录**复制**一次，旧目录不删不改
+- 旧的配置码（`dsh: "ui-beautify"`）仍可导入，新导出的写 `spectra`
+- 中文名「界面美化」不变，设置里的位置和外观都不变
+- DOM 上的 `data-ui-beautify` 与 `data-ub-*` 属性保持原样，它们只是内部标记，不影响任何外部行为
+
+升级注意：装完之后要**彻底退出 DSH 再打开**，插件在 `node_modules` 里的目录名也变了
+
 ## 1.7.4
 
 - 修复「从参考图取风格」完全无效：写入调用的参数形状错了，把整个 `palette` 分支写成了字符串 `"dark"`，下一次渲染抛异常并被错误边界吞掉，表现为点了没反应

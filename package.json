@@ -1,13 +1,13 @@
 {
-  "name": "dsh-ui-beautify",
-  "version": "1.7.4",
+  "name": "dsh-spectra",
+  "version": "1.8.0",
   "description": "界面美化 for DeepSeek Harness: a comprehensive, parameter-rich UI beautification suite with presets, custom themes, a wallpaper library, glass materials, motion effects, per-region and per-zone colours, and share codes.",
   "keywords": [
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
+    "spectra",
     "theme",
-    "skin",
     "glassmorphism",
     "beautify",
     "appearance"
@@ -23,14 +23,6 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
-  "files": [
-    "lib",
-    "test",
-    "cordis.patch.yml",
-    "README.md",
-    "LICENSE",
-    "CHANGELOG.md"
-  ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
@@ -45,5 +37,21 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhi-jie2778/dsh-spectra.git"
+  },
+  "homepage": "https://github.com/zhi-jie2778/dsh-spectra#readme",
+  "bugs": {
+    "url": "https://github.com/zhi-jie2778/dsh-spectra/issues"
+  },
+  "files": [
+    "lib",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
 }

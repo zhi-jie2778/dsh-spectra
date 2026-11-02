@@ -209,7 +209,7 @@ assert.ok(seen.has("Switch"), "switches rendered");
 assert.ok(seen.has("Slider") || seen.has("ColorField"), "value controls rendered");
 
 // the presenter must have written a live stylesheet while enabled
-const themeStyle = head.children.find((child) => child.id === "dsh-ui-beautify-theme");
+const themeStyle = head.children.find((child) => child.id === "dsh-spectra-theme");
 assert.ok(themeStyle, "theme style element installed");
 assert.ok(themeStyle.textContent.length > 500, "stylesheet content written");
 assert.ok(themeStyle.textContent.includes("--dsw-alias-bg-base"));
