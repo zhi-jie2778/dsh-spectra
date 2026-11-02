@@ -48,7 +48,7 @@ DeepSeek Harness Web GUI 的外观定制插件，一个总开关，六套内置�
 ### 克隆下来用 dsh 安装
 
 ```bash
-git clone https://github.com/<你的用户名>/dsh-ui-beautify.git
+git clone https://github.com/zhi-jie2778/dsh-ui-beautify.git
 dsh plugin --profile desktop add link:<克隆目录的绝对路径>
 ```
 
